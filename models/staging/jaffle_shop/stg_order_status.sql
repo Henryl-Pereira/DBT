@@ -1,8 +1,14 @@
+{{
+    config(
+        materialized = 'table',
+        unique_key = 'order_id'
+    )
+}}
 with
 
 source as (
 
-    select * from {{ source('jaffle_shop',  'order_status') }}
+    select * from {{ sourc('jaffle_shop',  'order_status') }}
 
 ),
 
