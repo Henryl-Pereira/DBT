@@ -1,9 +1,9 @@
 unit_tests:
   - name: test_order_status_cleanup # this is the unique name of the test
     description: Test my status case/when cleanup logic 
-    model: stg_orders # name of the model I'm unit testing 
+    model: stg_order_status # name of the model I'm unit testing 
     given: # the mock data for your inputs
-      - input: source('jaffle_shop',  'orders')
+      - input: source('jaffle_shop',  'order_status')
         rows:
          - {id: 1, status: returned}
          - {id: 2, status: return_pending}
@@ -24,12 +24,12 @@ unit_tests:
 
   - name: test_days_since_ordered
     description: Test my datediff caluclation for days_since_ordered
-    model: stg_orders
+    model: stg_order_status
     overrides:
       macros:
         dbt.current_timestamp: "date('2024-01-15')"
     given:
-      - input: source('jaffle_shop',  'orders')
+      - input: source('jaffle_shop',  'order_status')
         rows:
           - {order_date: 2024-01-01}
     expect:
