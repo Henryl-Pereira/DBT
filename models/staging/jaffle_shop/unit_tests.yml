@@ -3,7 +3,7 @@ unit_tests:
     description: Test my status case/when cleanup logic 
     model: stg_orders # name of the model I'm unit testing 
     given: # the mock data for your inputs
-      - input: source('jaffle_shop',  'orders')
+      - input: source('jaffle_shop',  'order_status')
         rows:
          - {id: 1, status: returned}
          - {id: 2, status: return_pending}
