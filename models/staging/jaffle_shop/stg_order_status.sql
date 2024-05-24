@@ -8,7 +8,7 @@ with
 
 source as (
 
-    select * from {{ sourc('jaffle_shop',  'order_status') }}
+    select * from {{ source('jaffle_shop',  'order_status') }}
 
 ),
 
